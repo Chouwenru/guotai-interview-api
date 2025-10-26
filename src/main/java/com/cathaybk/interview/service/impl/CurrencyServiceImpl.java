@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cathaybk.interview.entity.Currency;
+import com.cathaybk.interview.repository.CurrencyRepository;
 import com.cathaybk.interview.service.CurrencyService;
 
 import lombok.RequiredArgsConstructor;
@@ -12,10 +13,12 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CurrencyServiceImpl implements CurrencyService {
-
+	
+	private final CurrencyRepository repo;
+	
 	@Override
 	public List<Currency> getAllCoinDesk() {
-		return null;
+		return repo.findAll();
 	};
 
 	@Override
