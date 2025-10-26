@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb               # 使用 H2 記憶體資料庫
+#    url: jdbc:h2:file:./data/testdb       # 使用 H2 File-based (檔案模式)
+#    url: jdbc:h2:tcp://localhost/~/testdb # 使用 H2 Server mode (TCP)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true               # 啟用 H2 網頁介面
+      path: /h2-console           # 可從 http://localhost:8080/h2-console 進入
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none              # 啟動時自動建立/更新資料表 (開發階段可用)
+    show-sql: true                # 在 console 顯示 SQL
+    properties:
+      hibernate:
+        format_sql: true          # 美化 SQL 輸出
+
+  sql.init:
+    mode: always
+    platform: h2
+    schema-locations: classpath:h2/schema.sql
+    data-locations: classpath:h2/data.sql

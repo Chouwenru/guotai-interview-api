@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.cathaybk.interview.controller;
 
 import java.util.List;
 
@@ -10,33 +10,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.CoinDesk;
-import com.example.demo.service.CoinDeskService;
+import com.cathaybk.interview.entity.Currency;
+import com.cathaybk.interview.service.CurrencyService;
+
+import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping("/api/coin")
+@RequestMapping("coin")
+@RequiredArgsConstructor
+public class CurrencyController {
 
-public class CoinDeskController {
-
-    private final CoinDeskService coinDeskService;
-
-    public CoinDeskController(CoinDeskService coinDeskService) {
-        this.coinDeskService = coinDeskService;
-    }
+    private final CurrencyService coinDeskService;
 
     @GetMapping
-    public List<CoinDesk> getAllCoinDesks() throws Exception {
+    public List<Currency> getAllCoinDesks() throws Exception {
         return coinDeskService.getAllCoinDesk();
     }
 
     @GetMapping("/{id}")
-    public CoinDesk getCoinDeskById(@PathVariable String id) throws Exception {
+    public Currency getCoinDeskById(@PathVariable String id) throws Exception {
         return coinDeskService.getCoinDeskById(id);
     }
 
     @PostMapping
-    public CoinDesk createCoinDesk(@RequestBody CoinDesk coinDesk) throws Exception {
+    public Currency createCoinDesk(@RequestBody Currency coinDesk) throws Exception {
         return coinDeskService.createCoinDesk(coinDesk);
     }
 

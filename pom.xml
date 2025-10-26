@@ -7,12 +7,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.5</version>
+    <version>3.5.5</version>
     <relativePath/>  <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
+  <groupId>idv.roger</groupId>
+  <artifactId>guotai-interview</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -44,6 +44,18 @@
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
+    
+    <dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- SLF4J API -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	</dependency>
 
     <!-- Test（讓 Boot 管控 jUnit/surefire 版本） -->
     <dependency>
